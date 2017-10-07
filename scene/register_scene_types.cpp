@@ -544,7 +544,9 @@ void register_scene_types() {
 
 	ClassDB::register_class<AudioStreamPlayer>();
 	ClassDB::register_class<AudioStreamPlayer2D>();
+#ifndef _3D_DISABLED
 	ClassDB::register_class<AudioStreamPlayer3D>();
+#endif
 	ClassDB::register_virtual_class<VideoStream>();
 	ClassDB::register_class<AudioStreamSample>();
 
@@ -614,7 +616,9 @@ void unregister_scene_types() {
 	}
 
 	SpatialMaterial::finish_shaders();
+#ifndef _3D_DISABLED
 	ParticlesMaterial::finish_shaders();
+#endif
 	CanvasItemMaterial::finish_shaders();
 	SceneStringNames::free();
 }
